@@ -16,8 +16,8 @@ class CategoryTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        self.descriptionLabel = UILabel(frame: CGRect(x: 0, y: 31, width: 100, height: 30))
+        self.titleLabel = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 30))
+        self.descriptionLabel = UILabel(frame: CGRect(x: 10, y: 31, width: 200, height: 30))
         
         self.addSubview(self.titleLabel!)
         self.addSubview(self.descriptionLabel!)

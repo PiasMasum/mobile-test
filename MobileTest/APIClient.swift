@@ -12,9 +12,9 @@ class APIClient {
     
     typealias completionHandler = ([AnyObject]?, Error?) -> Void
     
-    func getData(completion: @escaping completionHandler){
+    func getData(url: String, completion: @escaping completionHandler){
         
-        if let path = Bundle.main.path(forResource: "categories", ofType: "json") {
+        if let path = Bundle.main.path(forResource: url, ofType: "json") {
             
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

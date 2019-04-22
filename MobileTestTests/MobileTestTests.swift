@@ -11,12 +11,30 @@ import XCTest
 
 class MobileTestTests: XCTestCase {
 
+    var apiClient: APIClient!
+    var categoryViewModels = NSMutableArray()
+
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        apiClient = APIClient()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    
+    func testData(){
+        apiClient.getData(url: "categories") { (json, error) in
+            for dict in json! {
+                let category = Category(fromDictionary: dict as! [String : Any])
+                let viewModel = CategoryViewModel(category: category)
+                self.categoryViewModels.add(viewModel)
+            }
+        }
+        let category = self.categoryViewModels.object(at: 0) as? CategoryViewModel
+        XCTAssertEqual(category?.title, "Restaurants")
+
     }
 
     func testExample() {
